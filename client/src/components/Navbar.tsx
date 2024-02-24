@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center py-4 px-2">
-                        <span className="font-semibold text-gray-800 text-lg">Hotelly</span>
+                        <Link to={"*"} className="font-semibold text-gray-800 text-lg">Hotelly</Link>
                     </div>
                     <div className="hidden md:flex space-x-4">
                         <Link to="#" className="py-4 px-2 text-gray-600 hover:text-green-500 transition duration-300">Booking</Link>
