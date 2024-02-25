@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoReorderThreeOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,12 @@ const Navbar: React.FC = () => {
                         <Link to="#" className="py-4 px-2 text-gray-600 hover:text-green-500 transition duration-300">Contact</Link>
                     </div>
                     <div className="hidden md:flex items-center space-x-3">
-                        <Link to="/login" className="py-2 px-4 font-medium text-white bg-green-500 rounded-full hover:bg-green-400 transition duration-300" type="button">Login</Link>
+                        <Link to="/" className="py-2 px-4 font-medium text-white bg-green-500 rounded-full hover:bg-green-400 transition duration-300" type="button">            <SignedOut>
+                            <SignInButton />
+                        </SignedOut>
+                            <SignedIn>
+                                <SignOutButton signOutCallback={() => redirect('/')} />
+                            </SignedIn></Link>
                     </div>
                     <div className="md:hidden flex items-center">
                         <button className="outline-none mobile-menu-button" onClick={toggleMenu} type="button">
@@ -39,7 +45,12 @@ const Navbar: React.FC = () => {
                 <Link to="#" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200">About Us</Link>
                 <Link to="#" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200">Location</Link>
                 <Link to="#" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200">Contact</Link>
-                <Link to="/login" className="block py-2 px-4 text-sm text-white bg-green-500 rounded-full hover:bg-green-400" type="button">Login</Link>
+                <Link to="/" className="block py-2 px-4 text-sm text-white bg-green-500 rounded-full hover:bg-green-400" type="button">            <SignedOut>
+                    <SignInButton />
+                </SignedOut>
+                    <SignedIn>
+                        <SignOutButton signOutCallback={() => redirect('/')} />
+                    </SignedIn></Link>
             </div>
         </nav>
     );
