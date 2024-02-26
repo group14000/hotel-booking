@@ -19,9 +19,9 @@ const Navbar: React.FC = () => {
                 <div className="hidden md:flex space-x-4">
                     <NavLink to="#" label="Booking" />
                     <NavLink to="#" label="Facilities" />
-                    <NavLink to="#" label="About Us" />
+                    <NavLink to="/about" label="About Us" />
                     <NavLink to="#" label="Location" />
-                    <NavLink to="#" label="Contact" />
+                    <NavLink to="/contact" label="Contact" />
                 </div>
                 <div className="hidden md:flex items-center space-x-3">
                     <AuthButtons />
@@ -61,7 +61,7 @@ const MobileMenu: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
         <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
             <MobileNavLink to="#" label="Booking" />
             <MobileNavLink to="#" label="Facilities" />
-            <MobileNavLink to="#" label="About Us" />
+            <MobileNavLink to="/about" label="About Us" />
             <MobileNavLink to="#" label="Location" />
             <MobileNavLink to="#" label="Contact" />
             <AuthButtons />
