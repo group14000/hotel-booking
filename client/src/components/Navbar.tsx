@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { IoReorderThreeOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react";
+import {  SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,14 +46,20 @@ const NavLink: React.FC<{ to: string, label: string }> = ({ to, label }) => {
 
 const AuthButtons: React.FC = () => {
     return (
-        <Link to="/" className="py-2 px-4 font-medium text-white bg-green-500 rounded-full hover:bg-green-400 transition duration-300" type="button">
+        <div className="flex items-center space-x-3">
             <SignedOut>
-                <SignInButton />
+                <Link to="/" className="py-2 px-4 font-medium text-white bg-green-500 rounded-full hover:bg-green-400 transition duration-300" type="button">
+                    <SignInButton />
+                </Link>
             </SignedOut>
             <SignedIn>
-                <SignOutButton signOutCallback={() => redirect('/')} />
+                <div className="flex items-center space-x-3">
+                    <Link to="https://skilled-snapper-68.accounts.dev/user" className="py-2 px-4 font-medium text-white bg-green-500 rounded-full hover:bg-green-400 transition duration-300" type="button">
+                        <CgProfile />
+                    </Link>
+                </div>
             </SignedIn>
-        </Link>
+        </div>
     );
 };
 
